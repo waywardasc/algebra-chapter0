@@ -1,0 +1,97 @@
+\section{Théorie naïve des ensembles}
+
+\begin{exercice}
+    On définit "l'ensemble" $R = \{x \mid x \notin R\}$.
+    Supposons d'abord que $x \in R$, alors par définition de $R$, on a que $x \notin R$. Supposons maintenant 
+    que $x \notin R$, alors de même, par définition de $R$, $x \in R$. Dans les deux cas, on a à la fois $x \in R$ et $x \notin R$. Paradoxe.
+\end{exercice}
+
+\begin{exercice}
+    Soit $\sim$ soit une relation dans un ensemble $S$.
+    Soit $[a]_\sim, [b]_\sim$ des élements distincts de $S /_\sim$. On remarque que ces deux éléments ne sont pas vides puisque $a \in [a]_{\sim}$
+    et $b \in [b]_\sim$ par réflexivité de $\sim$. Supposons que $[a]_\sim \cap [b]_\sim \neq \emptyset$, alors il existe $x \in S$ tel que $x \in [a]_\sim$ et $x \in [b]_\sim$ i.e. $x \sim a$ et $x \sim b$.
+
+    \begin{itemize}
+        \item Pour tous $x_a \in [a]_\sim$, on a $x_a \sim a$ et $a \sim x$, d'où par transitivité, $x_a \sim x$. On en déduit que $x_a \sim b$ par transitivité et réflexivité de $\sim$. On en déduit que $x_a \in [b]_\sim$ et donc $[a]_\sim \subseteq [b]_\sim$.
+        \item Pour tous $x_b \in [b]_\sim$, on a $x_b \sim b$ et $b \sim x$, d'où par transitivité, $x_b \sim x$. On en déduit que $x_b \sim a$ par transitivité et réflexivité de $\sim$. On en déduit que $x_b \in [a]_\sim$ et donc $[b]_\sim \subseteq [a]_\sim$.
+    \end{itemize}
+    On a alors que $[a]_\sim = [b]_\sim$. Les éléments de $S /_\sim$ sont alors distincts deux à deux. On sait par définition que $\bigsqcup_{[a]_\sim \in S /_\sim} [a]_\sim \subseteq S$.
+    Soit $x \in S$, alors $x \in [x]_\sim$, or $[x]_\sim \in S /_\sim$, donc $x \in \bigsqcup_{[a]_\sim \in S /_\sim} [a]_\sim$ et $S = \bigsqcup_{[a]_\sim \in S /_\sim} [a]_\sim$. Autrement dit, que $S/_\sim$ forme une partition de $S$.
+\end{exercice}
+
+\begin{exercice}
+    Direct.
+\end{exercice}
+
+\begin{exercice}
+    On a $5$ partitions possibles de $\{1,2,3\}$. Dès lors $5$ relations d'équivalence peuvent être définies sur cet ensemble.
+\end{exercice}
+
+\begin{exercice}
+    Sur $S = \{1,2,3\}$, on définit
+    \[
+    R = \{(1,1), (2,2), (3,3), (1,2), (2,1), (2,3), (3,2)\}.
+    \]
+    On voit que $R$ est réflexive, symétrique mais n'est pas transitive car $1R2$ et $2R3$ mais on n'a pas $1R3$.
+    On aurait alors $S /_R = \{\{1,2\}, \{2, 1, 3\}, \{2, 3\}\}$ qui n'est pas une partition de $S$.
+\end{exercice}
+
+\begin{exercice}
+    Soit $\sim$ la relation sur $\R$ définie par $x \sim y \Longleftrightarrow x - y \in \Z$.
+    \begin{itemize}
+        \item Soit $x \in \R$, on a $x - x = 0 \in \Z$, d'où $x \sim x$.
+        \item Soit $x,y \in \R$, supposons que $x \sim y$, alors $y - x = (-1)(x - y) \in \Z$, d'où $y \sim x$.
+        \item Soit $x,y,z \in \R$, supposons que $x \sim y$ et $y \sim z$, alors $x - z = (x - y) + (y - z) \in \Z$, d'où $x \sim z$.
+    \end{itemize}
+    La relation $\sim$ est donc une relation d'équivalence, on a $\R /_\sim = \{[x]_\sim \mid x \in [0, 1[\}$.
+    Raisonnement analogue pour la deuxième relation.
+\end{exercice}
+
+\section{Fonctions entre ensembles}
+
+\begin{exercice}
+    On considère $S = \{s_1,\dots,s_n\}$, on considère 
+    \begin{align*}
+        \Omega_S &= \{(f(s_1),\dots,f(s_n))) \mid f : S \to S \text{ bijective}\} \\
+                 &= \{(s_{\sigma(1)},\dots,s_{\sigma(n)}) \mid \sigma \in S_n\}
+    \end{align*}
+    où $S_n$ est l'ensemble des permutations de $\{1,\dots,n\}$. Dès lors, $|\Omega_S| = n!$, 
+    on en déduit qu'il existe $n!$ fonctions bijectives de $S$ à $S$.
+\end{exercice}
+
+\begin{exercice}
+    Soit $f : A \to B, A \neq \emptyset$.
+    Supposons que $f$ admette une fonction inverse à droite $g : B \to A$. Alors pour tout $y \in f(A)$, il existe 
+    $x := g(y) \in A$ tel que $f(x) = y$. Supposons réciproquement que $f$ soit surjective, alors pour tout $y \in B$, il
+    existe $x \in A$ tel que $f(x) = y$. Soit $s \in A$ fixé, on définit alors 
+    \[
+        g : y \in B \mapsto 
+        \begin{cases}
+            x \in f^{-1}(\{y\}) & \text{si } y \in Im(f),\\
+            s & \text{sinon}
+        \end{cases} \in A.
+    \]
+    On voit que cette fonction n'est pas unique si pour au moins un $y \in Im(f), f^{-1}(\{y\}$ n'est pas un singleton,
+    i.e. f n'est pas injective. Dès lors on a unicité de $g$ si et seulement si $f$ est bijective. L'axiome du choix nous 
+    permet de sélectionner un élément $x$ de $f^{-1}(\{y\})$.
+    
+\end{exercice}
+
+\begin{exercice}
+    Soit $f : A \to B$ une bijection, on a alors $f^{-1} \circ f = Id_A$ et $f \circ f^{-1} = Id_B$. Dès lors $(f^{-1})^{-1} = f$ par 
+    unicité de la bijection.
+    Soit maintenant $f : A \to B, g : B \to C$ des bijections, alors on a $(g \circ f) \circ (f^{-1} \circ g^{-1}) = Id_A$ et 
+    $f^{-1} \circ g^{-1} \circ (g \circ f) = Id_B$ par associativité de la composition.
+\end{exercice}
+
+\begin{exercice}
+    Pour éviter un "ensemble d'ensembles" qui ferait apparaître un paradoxe, plaçons-nous dans $E = \mathcal{P}(\R)$ l'ensemble des parties
+    de $\R$.
+    \begin{itemize}
+        \item Soit $A \in E$, alors $1_A : x \in A \mapsto x \in A$ est une bijection d'inverse $1_A$ puisque $1_A \circ 1_A = 1_A$.
+        \item Soit $A,B \in E$, supposons qu'il existe $f : A \to B$ est une bijection, alors $f^{-1}$ est une bijection de $B$ à $A$.
+        \item Soit $A,B,C \in E$, supposons qu'il existe $f : A \to B, g : B \to C$ des bijections, alors $g \circ f$ est une bijection
+        de $A$ à $C$.
+    \end{itemize}
+    Le deuxième et troisième point sont des conséquences de l'exercice précédent.
+\end{exercice}

@@ -1,0 +1,33 @@
+\documentclass[a4paper]{report}
+
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{amsmath, amsthm}
+
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\Z}{\mathbf{Z}}
+
+\counterwithout{section}{chapter}
+
+\makeatletter
+\@addtoreset{section}{chapter}
+\makeatother
+
+\newtheorem{exercice}{Exercice}[section]
+
+\title{Solutions aux exercices d'\textit{Algebra: Chapter 0} de Paolo Aluffi}
+\author{Oussama Ouanane}
+
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\chapter{Préliminaires : Théorie des ensembles et catégories}
+\include{chapitre1}
+
+
+\end{document}
