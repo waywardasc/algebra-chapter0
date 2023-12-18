@@ -12,8 +12,10 @@
     et $b \in [b]_\sim$ par réflexivité de $\sim$. Supposons que $[a]_\sim \cap [b]_\sim \neq \emptyset$, alors il existe $x \in S$ tel que $x \in [a]_\sim$ et $x \in [b]_\sim$ i.e. $x \sim a$ et $x \sim b$.
 
     \begin{itemize}
-        \item Pour tous $x_a \in [a]_\sim$, on a $x_a \sim a$ et $a \sim x$, d'où par transitivité, $x_a \sim x$. On en déduit que $x_a \sim b$ par transitivité et réflexivité de $\sim$. On en déduit que $x_a \in [b]_\sim$ et donc $[a]_\sim \subseteq [b]_\sim$.
-        \item Pour tous $x_b \in [b]_\sim$, on a $x_b \sim b$ et $b \sim x$, d'où par transitivité, $x_b \sim x$. On en déduit que $x_b \sim a$ par transitivité et réflexivité de $\sim$. On en déduit que $x_b \in [a]_\sim$ et donc $[b]_\sim \subseteq [a]_\sim$.
+        \item Pour tous $x_a \in [a]_\sim$, on a $x_a \sim a$ et $a \sim x$, d'où par transitivité, $x_a \sim x$. 
+        On en déduit que $x_a \sim b$ par transitivité et réflexivité de $\sim$. On en déduit que $x_a \in [b]_\sim$ et donc $[a]_\sim \subseteq [b]_\sim$.
+        \item Pour tous $x_b \in [b]_\sim$, on a $x_b \sim b$ et $b \sim x$, d'où par transitivité, $x_b \sim x$. 
+        On en déduit que $x_b \sim a$ par transitivité et réflexivité de $\sim$. On en déduit que $x_b \in [a]_\sim$ et donc $[b]_\sim \subseteq [a]_\sim$.
     \end{itemize}
     On a alors que $[a]_\sim = [b]_\sim$. Les éléments de $S /_\sim$ sont alors distincts deux à deux. On sait par définition que $\bigsqcup_{[a]_\sim \in S /_\sim} [a]_\sim \subseteq S$.
     Soit $x \in S$, alors $x \in [x]_\sim$, or $[x]_\sim \in S /_\sim$, donc $x \in \bigsqcup_{[a]_\sim \in S /_\sim} [a]_\sim$ et $S = \bigsqcup_{[a]_\sim \in S /_\sim} [a]_\sim$. Autrement dit, que $S/_\sim$ forme une partition de $S$.
@@ -107,6 +109,9 @@
 
 \begin{exercice}
     On peut exprimer $f : A \to B$ par son graphe $\Gamma = \{(x, f(x)) \mid x \in A\}$.
+    On peut créer une flèche pour aller de $A$ à $\Gamma$ à l'aide de l'application $\varphi : x \in A \mapsto (x,f(x)) \in \Gamma$ 
+    et on a alors $(\pi_A \circ \varphi)(a) = a$. Donc $\varphi$ est une section de $\pi_A$.
+
     \begin{figure}[h]
         \centering
         \begin{tikzcd}
@@ -133,7 +138,7 @@
     \begin{figure}[h]
         \centering
         \begin{tikzcd}
-            \R \arrow[r] \arrow[r, two heads] \arrow[rrr, "f", bend left] & {\{[y]_\sim | y \in [0,1]\}} \arrow[r, "\sim"] & S^1 \arrow[r, hook] & B
+            \R \arrow[r] \arrow[r, two heads] \arrow[rrr, "f", bend left] & {\{[y]_\sim | y \in [0,1[]\}} \arrow[r, "\sim"] & S^1 \arrow[r, hook] & B
         \end{tikzcd}
     \end{figure}
 \end{exercice}
@@ -171,3 +176,18 @@
 \end{exercice}
 
 \section{Catégories}
+
+\begin{exercice}
+    Soit $A, B, C \in Obj(\cat{C}^{op})$, on a 
+    \begin{itemize}
+        \item $Hom_{\cat{C}^{op}}(A,A) = Hom_{\cat{C}}(A,A)$, d'où $Id_A \in Hom_{\cat{C}^{op}}(A,A)$.
+        \item Pour tous $f \in Hom_{\cat{C}^{op}}(A,B), g \in Hom_{\cat{C}^{op}}(B,C)$, on a $fg \in Hom_{\cat{C}}(C,A)$ donc $fg \in Hom_{\cat{C}^{op}}(A,C)$.
+        Dès lors, $g \circ f := fg \in Hom_{\cat{C}^{op}}(A,C)$.
+        \item L'associativité est directement héritée de $\cat{C}$.
+        \item Pour tous $f \in Hom_{\cat{C}^{op}}(A,B), f \circ Id_A = Id_A f$ et $Id_B \circ f = f Id_B = f$ par $\cat{C}$.
+    \end{itemize}
+\end{exercice}
+
+\begin{exercice}
+    Si $A$ est fini, alors l'exercice 2.10, $End_{\cat{Ens}}(A) = |A|^{|A|}$.
+\end{exercice}
