@@ -93,5 +93,81 @@
         \item Soit $A,B,C \in E$, supposons qu'il existe $f : A \to B, g : B \to C$ des bijections, alors $g \circ f$ est une bijection
         de $A$ à $C$.
     \end{itemize}
-    Le deuxième et troisième point sont des conséquences de l'exercice précédent.
+    Les deuxième et troisième points sont des conséquences de l'exercice précédent.
 \end{exercice}
+
+\begin{exercice}
+    Soit $f : A \to B$ une fonction, on dit que $f$ est un épimorphisme si pour tout ensemble $Z$, pour toutes applications $\varphi_1, \varphi_2 : B \to Z$,
+    si $\varphi_1 \circ f = \varphi_2 \circ f$ alors $\varphi_1 = \varphi_2$.
+    Supposons que $f$ soit surjective, alors pour tout ensemble $Z$, pour toutes applications $\varphi_1, \varphi_2 : B \to Z$, si $\varphi_1 \circ f = \varphi_2 \circ f$ alors 
+    pour tout $y \in Im(f)$, on a $\varphi_1(y) = \varphi_2(y)$, donc $\varphi_1 = \varphi_2$ sur $Im(f)$, mais $Im(f) = B$ puisque $f$ est surjective. D'où $f$ est un épimorphisme. 
+    Supposons réciproquement que $f$ soit un épimorphisme, en particulier, on a pour $\varphi_1 : x \in B \mapsto 0 \in \{0, 1\}$ et $\varphi_1 : x \in B \mapsto 1 - 1_{Im(f)}(x) \in \{0, 1\}$.
+    On a pour tout $x \in A, (\varphi_1 \circ f)(x) = (\varphi_2 \circ f)(x) = 0$. Dès lors, on a $\varphi_1 = \varphi_2$, i.e. pour tout $y\in B, y \in Im(f)$.
+\end{exercice}
+
+\begin{exercice}
+    On peut exprimer $f : A \to B$ par son graphe $\Gamma = \{(x, f(x)) \mid x \in A\}$.
+    \begin{figure}[h]
+        \centering
+        \begin{tikzcd}
+            & \Gamma \arrow[ld, "\pi_A"', two heads] \arrow[rd, "\pi_{\text{Im}(f)}", two heads] &                   \\
+          A &                                                                                      & \text{Im}(f) \subseteq B
+        \end{tikzcd}
+    \end{figure}
+\end{exercice}
+
+\begin{exercice}
+    On note $\pi_A : (x, f(x)) \in \Omega \mapsto x \in A$. Par définition de fonction, chaque élément de A est 
+    associé à un unique élément dans $B$. Dès lors, $\pi_A$ est injective. De même, $\pi_A$ est surjective à partir 
+    du moment où $A$ est le domaine de $f$. Dans ce livre on ne fait pas de distinction entre fonction et application, 
+    dès lors $A$ est le domaine de $f$ donc $\pi_A$ est toujours surjective.
+\end{exercice}
+
+\begin{exercice}
+    En posant $f : x \in \R \mapsto e^{2i\pi r} \in \C$, on a $Im(f) = S^1$ le cercle unité centré en 0 dans le plan complexe.
+    Soit $r, r' \in \R$, supposons que $e^{2i\pi r} = e^{2i\pi r'}$. On aurait alors $2\pi r = 2\pi r' + 2k\pi = 2\pi(r + k)$ avec $k \in \Z$.
+    D'où $r - r' = k$, ou encore, $r - r' \in \Z$. Dès lors, définir $r \sim r' \Leftrightarrow e^{2i\pi r} = e^{2i\pi r'}$ revient à $r \sim r' \Leftrightarrow r - r' \in \Z$.
+    Grâce à l'exercice 1.6, on sait que $\R /_\sim = \{[y]_\sim | y \in [0,1[\}$.
+    On a alors 
+
+    \begin{figure}[h]
+        \centering
+        \begin{tikzcd}
+            \R \arrow[r] \arrow[r, two heads] \arrow[rrr, "f", bend left] & {\{[y]_\sim | y \in [0,1]\}} \arrow[r, "\sim"] & S^1 \arrow[r, hook] & B
+        \end{tikzcd}
+    \end{figure}
+\end{exercice}
+
+\begin{exercice}
+    Supposons que $A' \cong A''$ et $B' \cong B''$ avec $A', B'$ disjoints et $A'', B''$ disjoints. Il existe alors des fonctions $f : A' \to A'', g : B' \to B''$
+    bijectives. On construit alors $h : x \in A' \cup B' \mapsto 
+    \begin{cases}
+        f(x) & \text{si } x \in A', \\
+        g(x) & \text{si } x \in B'
+    \end{cases} \in A'' \cup B''$.
+    Cette fonction est bien définie puisque $A', B'$ sont disjoints. La fonction $h$ est bijective par construction, on a 
+    $h^{-1} : y \in A'' \cup B'' \mapsto 
+    \begin{cases}
+        f^{-1}(y) & \text{si } x \in A'', \\
+        g^{-1}(y) & \text{si } x \in B''
+    \end{cases} \in A'' \cup B''$.
+    
+    On peut définir $A \amalg B$ comme étant l'ensemble $(S \times A) \cup (T \times B)$ où $S, T$ sont des 
+    ensembles disjoints. Dès lors pour tous ensembles $S, T, S', T'$ avec $S \cap T \neq \emptyset$ et $S' \cap T \neq \emptyset$, on a 
+    $(S \times A) \cong (S' \times A)$ et $(T \times B) \cong (T' \times B)$, d'où par le résultat ci-dessus, $(S \times A) \cup (T \times B) \cong (S' \times A) \cup (T' \times B)$.
+\end{exercice}
+
+\begin{exercice}
+    Soit $A, B$ deux ensembles finis, on a 
+    \begin{align*}
+        |B^A| &= \{\{f(x_1),...,f(x_{|A|})) \mid f : A \to B, x_i \in A, i = 1\dots|A|, x_i \neq x_j \text{ si } i \neq j\}| \\
+              &= \left|\prod_{i=1}^{|A|} B\right| \\
+              &= |B|^{|A|}.
+    \end{align*}
+\end{exercice}
+
+\begin{exercice}
+    On pose $\varphi : f \in 2^A \mapsto \{a \in A \mid f(a) = 1\} \in \mathcal{P}(A)$, d'inverse $\varphi^{-1} : B \in \mathcal{P(A)} \mapsto 1_B \in 2^A$.
+\end{exercice}
+
+\section{Catégories}
