@@ -191,3 +191,54 @@
 \begin{exercice}
     Si $A$ est fini, alors l'exercice 2.10, $End_{\cat{Ens}}(A) = |A|^{|A|}$.
 \end{exercice}
+
+\begin{exercice}
+    Soit $a,b \in S$ tel que $Hom(a,b)$ ne soit pas vide. Alors on a $f \in Hom(a,b)$ si et seulement si $f = (a,b)$.
+    On a $Id_a = (a,a)$, puisque $a \sim b$, on a $b \sim a$. Dès lors 
+    \[a \sim b \land a \sim a \implies b \sim a \land a \sim a \]
+    mais on a 
+    \[b \sim a \land a \sim a \implies b \sim a \]
+    et 
+    \[b \sim a \implies a \sim b. \]
+    Par transitivité de l'implication, on obtient
+    \[a \sim b \land a \sim a \implies a \sim b.\]
+    On a alors $f Id_a = (a,b) = f$.
+    On raisonne de manière analogue pour montrer que $Id_b f = (a,b) = f$.
+
+\end{exercice}
+
+\begin{exercice}
+    Non car sur $\Z$, la relation $<$ n'est pas réflexive, donc elle n'est pas une relation d'équivalence.
+    En définissant de la même manière on aurait pas de morphisme identité $Id_z$ dans $Hom(z,z)$ pour tout $z \in \Z$.
+\end{exercice}
+
+\begin{exercice}
+    Sur $\mathcal{P}(S)$, la relation $\subseteq$ est une relation d'équivalence.
+\end{exercice}
+
+\begin{exercice}
+    Soit $A \in \mathcal{M}_{m,n}(\N)$ et $B \in \mathcal{M}_{n,p}(\N)$, alors on sait que la multiplication $AB$ est bien 
+    définie, en particulier, $AB \in \mathcal{M}_{m,p}(\N)$. On a $A \in Hom_\vee(n,m)$ si et seulement si $A \in \mathcal{M}_{m,n}(\N)$
+    et $B \in Hom_\vee(p,n)$ si et seulement si $B \in \mathcal{M}_{n,p}(\N)$.
+    
+    Supposons que $G \in Hom(s,t)$ et $H \in Hom(t,u)$, on définit alors $G \circ A = HG \in \mathcal{M}_{u,s}(\N)$ i.e. $G \circ A \in Hom_\vee(s,u)$.
+\end{exercice}
+
+\begin{exercice}
+    Soit $\cat{C}$ une catégorie et $A \in Obj(\cat{C})$. On définit $\cat{C}_A$ la catégorie telle que :
+    \begin{itemize}
+        \item $Obj(\cat{C}_A) = \{Hom_{\cat{C}}(A,Z) \mid Z \in Obj(\cat{C})\}$
+        \item Pour $A \xrightarrow{f} Z, A \xrightarrow{g} Z' \in Obj(\cat{C}_A)$,
+        on pose $Hom(f,g) = Hom_{\cat{C}}(Z,Z')$.
+        \item Pour $A \xrightarrow{f} Z \in Obj(\cat{C}_A)$, on pose $Id_f = Id_Z \in Hom_{\cat{C}}(Z,Z)$.
+        \item Soit $A \xrightarrow{f} Z, A \xrightarrow{g} Z',A \xrightarrow{h} Z'' \in Obj(\cat{C}_A)$, soit $Z \xrightarrow{\sigma} Z'\in Hom(f,g)$ et 
+        $Z' \xrightarrow{\tau} Z''$, on pose $\tau \sigma : Z \xrightarrow{\tau \circ_{\cat{C}} \sigma} Z''$.
+        \item L'associativé est héritée de $\cat{C}$.
+        \item Pour $A \xrightarrow{\sigma} Z \in Hom(f,g)$ (avec $A \xrightarrow{f} Z, A \xrightarrow{g} Z'$), on a $\sigma Id_f = \sigma Id_Z = \sigma$ et
+        $Id_g \sigma = Id_{Z'} \sigma = \sigma$ par $\cat{C}$.
+    \end{itemize}
+\end{exercice}
+
+\begin{exercice}
+    
+\end{exercice}
