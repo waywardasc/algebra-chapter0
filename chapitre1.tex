@@ -52,13 +52,14 @@
 \section{Fonctions entre ensembles}
 
 \begin{exercice}
-    On considère $S = \{s_1,\dots,s_n\}$, on considère 
+    On considère $S = \{s_1,\dots,s_n\}$, on pose :  
     \begin{align*}
         \Omega_S &= \{(f(s_1),\dots,f(s_n))) \mid f : S \to S \text{ bijective}\} \\
                  &= \{(s_{\sigma(1)},\dots,s_{\sigma(n)}) \mid \sigma \in S_n\}
     \end{align*}
-    où $S_n$ est l'ensemble des permutations de $\{1,\dots,n\}$. Dès lors, $|\Omega_S| = n!$, 
-    on en déduit qu'il existe $n!$ fonctions bijectives de $S$ à $S$.
+    où $S_n$ est l'ensemble des permutations de $\{1,\dots,n\}$. Dès lors, $|\Omega_S| = n!$. 
+    Or $\Omega_S$ est isomorphe à l'ensemble des fonctions bijectives de $S$ à $S$. 
+    On conclut qu'il existe $n!$ fonctions bijectives de $S$ à $S$.
 \end{exercice}
 
 \begin{exercice}
@@ -129,7 +130,7 @@
 \end{exercice}
 
 \begin{exercice}
-    En posant $f : x \in \R \mapsto e^{2i\pi r} \in \C$, on a $Im(f) = S^1$ le cercle unité centré en 0 dans le plan complexe.
+    En posant $f : r \in \R \mapsto e^{2i\pi r} \in \C$, on a $Im(f) = S^1$ le cercle unité centré en 0 dans le plan complexe.
     Soit $r, r' \in \R$, supposons que $e^{2i\pi r} = e^{2i\pi r'}$. On aurait alors $2\pi r = 2\pi r' + 2k\pi = 2\pi(r + k)$ avec $k \in \Z$.
     D'où $r - r' = k$, ou encore, $r - r' \in \Z$. Dès lors, définir $r \sim r' \Leftrightarrow e^{2i\pi r} = e^{2i\pi r'}$ revient à $r \sim r' \Leftrightarrow r - r' \in \Z$.
     Grâce à l'exercice 1.6, on sait que $\R /_\sim = \{[y]_\sim | y \in [0,1[\}$.
@@ -209,7 +210,7 @@
 
 \begin{exercice}
     Non car sur $\Z$, la relation $<$ n'est pas réflexive, donc elle n'est pas une relation d'équivalence.
-    En définissant de la même manière on aurait pas de morphisme identité $Id_z$ dans $Hom(z,z)$ pour tout $z \in \Z$.
+    En définissant de la même manière on n'aurait pas de morphisme identité $Id_z$ dans $Hom(z,z)$ pour tout $z \in \Z$.
 \end{exercice}
 
 \begin{exercice}
